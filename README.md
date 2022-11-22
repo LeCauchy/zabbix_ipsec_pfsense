@@ -1,8 +1,8 @@
 # Monitoring IPsec tunnels on pfSense using zabbix
 
-This project was forked from https://github.com/jpmenil/zabbix-templates, https://github.com/alanwds/zabbix_ipsec_pfsense and https://github.com/fralvarezcalvo/zabbix_ipsec_pfsense.
+This project was forked from https://github.com/jpmenil/zabbix-templates, https://github.com/alanwds/zabbix_ipsec_pfsense, https://github.com/fralvarezcalvo/zabbix_ipsec_pfsense and https://github.com/smejdil/zabbix_ipsec_pfsense
 
-Thanks to @alanwds, @jpmenil and @fralvarezcalvo by share
+Thanks to @alanwds, @jpmenil, @fralvarezcalvo and @smejdil for share
 
 This template is used for monitoring IPSEC tunnels on PFSense using zabbix.
 
@@ -46,7 +46,7 @@ Manual scripts instalation.
 ```console
 pkg install git
 cd /tmp
-git clone https://github.com/smejdil/zabbix_ipsec_pfsense
+git clone https://github.com/LeCauchy/zabbix_ipsec_pfsense
 ./zabbix_ipsec_pfsense/scripts/install_on_pfsense.sh
 ```
 
@@ -67,6 +67,3 @@ Test JSON output for LLD IPSec
 - Import the template ipsec_template-X.xml on zabbix and attach to pfsense hosts
 - Go get a beer :-)
 
-### ToDo
-
-- Fix IPSec Description - "Not found"
