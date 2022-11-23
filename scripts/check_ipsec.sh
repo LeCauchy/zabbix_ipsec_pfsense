@@ -43,11 +43,11 @@ test_tunnel() {
 			#If tunnel is up and match IP REGEX
 			if [ $? -eq 0 ]; then
                     		#echo "Tunnel $CONN look ok"
-                    		return 0
+                    		return 1
                 	fi
             	else
                 	#echo "Tunnel $CONN not ESTABLISHED"
-               		return 1
+               		return 0
             	fi
         fi
     fi

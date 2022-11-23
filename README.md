@@ -8,10 +8,10 @@ This template is used for monitoring IPSEC tunnels on PFSense using zabbix.
 
 # Dependencies
 
-- Project is used for pfSense >= 2.6.0 (swanctl.conf)
-- Zabbix agent (you can install it from pfsense packages manager)
+- Project is used for pfSense == 2.6.0 (swanctl.conf)
+- Zabbix agent (you can install it from pfsense packages manager) == 5.0.17
 - sudo (you can install it from pfsense packages manager)
-- Zabbix Server >= 4.0
+- Zabbix Server == 5.0
 - check_ipsec.sh
 - check_ipsec_traffic.sh
 - zabbix-ipsec.py (use Python 3.8)
@@ -26,7 +26,7 @@ The template queries zabbix-ipsec.py for tunnels ids (conXXXX). After that, the 
 - You have to put check_ipsec.sh, check_ipsec_traffic.sh and zabbix-ipsec.py on pfsense filesystem. (/usr/local/bin/ in this example)
 - Install sudo pakage at pfsense packages manager
 - Copy file zabbix_sudoers under /usr/local/etc/sudoers.d
-- Enabled Custom Configuration on Advanced Settins at System -> sudo
+- Enabled Custom Configuration on Advanced Settings at System -> sudo (zaabix RunAs root no password ALL)
 - Create the follow user parameters at zabbix-agent config page on pfsense (Service -> Zabbix-agent -> Advanced Options)
 ```
 UserParameter=ipsec.discover,/usr/local/bin/python3.8 /usr/local/bin/zabbix-ipsec.py
@@ -55,7 +55,7 @@ git clone https://github.com/LeCauchy/zabbix_ipsec_pfsense
 Test JSON output for LLD IPSec
 
 ```console
-[root@pfsense /tmp]# /usr/local/bin/python3.7 /usr/local/bin/zabbix-ipsec.py
+[root@pfsense /tmp]# /usr/local/bin/python3.8 /usr/local/bin/zabbix-ipsec.py
 {
     "data":[
         { "{#TUNNEL}":"con1000","{#TARGETIP}":"77.236.222.116","{#SOURCEIP}":"77.48.121.150","{#DESCRIPTION}":"Not found" },

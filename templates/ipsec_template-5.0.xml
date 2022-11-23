@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>5.0</version>
-    <date>2021-03-06T11:25:57Z</date>
+    <date>2022-11-23T08:40:57Z</date>
     <groups>
         <group>
             <name>Templates/Applications</name>
@@ -27,60 +27,9 @@
                     <key>ipsec.discover</key>
                     <delay>120</delay>
                     <item_prototypes>
+                        
                         <item_prototype>
-                            <name>Bytes IN: {#DESCRIPTION} -  {#TUNNEL}</name>
-                            <key>ipsec.traffic[{#TUNNEL},&quot;bytesIn&quot;]</key>
-                            <delay>120</delay>
-                            <history>30d</history>
-                            <trends>90d</trends>
-                            <units>bytes</units>
-                            <applications>
-                                <application>
-                                    <name>IPSec</name>
-                                </application>
-                            </applications>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Bytes OUT: {#DESCRIPTION} -  {#TUNNEL}</name>
-                            <key>ipsec.traffic[{#TUNNEL},&quot;bytesOut&quot;]</key>
-                            <delay>120</delay>
-                            <history>30d</history>
-                            <trends>90d</trends>
-                            <units>bytes</units>
-                            <applications>
-                                <application>
-                                    <name>IPSec</name>
-                                </application>
-                            </applications>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>PKTS IN: {#DESCRIPTION} -  {#TUNNEL}</name>
-                            <key>ipsec.traffic[{#TUNNEL},&quot;pktsIn&quot;]</key>
-                            <delay>120</delay>
-                            <history>30d</history>
-                            <trends>90d</trends>
-                            <units>pkts</units>
-                            <applications>
-                                <application>
-                                    <name>IPSec</name>
-                                </application>
-                            </applications>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>PKTS Out: {#DESCRIPTION} -  {#TUNNEL}</name>
-                            <key>ipsec.traffic[{#TUNNEL},&quot;pktsOut&quot;]</key>
-                            <delay>120</delay>
-                            <history>30d</history>
-                            <trends>90d</trends>
-                            <units>pkts</units>
-                            <applications>
-                                <application>
-                                    <name>IPSec</name>
-                                </application>
-                            </applications>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Tunnel: {#DESCRIPTION} - {#TUNNEL}</name>
+                            <name>Tunnel: {#TUNNEL} - {#DESCRIPTION} </name>
                             <key>ipsec.tunnel[{#TUNNEL}]</key>
                             <delay>120</delay>
                             <history>30d</history>
@@ -92,8 +41,8 @@
                             </applications>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <expression>{last(0)}&lt;&gt;0</expression>
-                                    <name>Tunnel: {#DESCRIPTION} - {#TUNNEL}  down</name>
+                                    <expression>{last(0)}&lt;&gt;1</expression>
+                                    <name>Tunnel: {#TUNNEL} - {#DESCRIPTION}  down</name>
                                     <priority>HIGH</priority>
                                     <tags>
                                         <tag>
@@ -111,27 +60,7 @@
                     </item_prototypes>
                     <graph_prototypes>
                         <graph_prototype>
-                            <name>{#DESCRIPTION} - {#TUNNEL} Packages</name>
-                            <graph_items>
-                                <graph_item>
-                                    <color>2774A4</color>
-                                    <item>
-                                        <host>Template App pfSense IPSec tunnels</host>
-                                        <key>ipsec.traffic[{#TUNNEL},&quot;pktsIn&quot;]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>1</sortorder>
-                                    <color>A54F10</color>
-                                    <item>
-                                        <host>Template App pfSense IPSec tunnels</host>
-                                        <key>ipsec.traffic[{#TUNNEL},&quot;pktsOut&quot;]</key>
-                                    </item>
-                                </graph_item>
-                            </graph_items>
-                        </graph_prototype>
-                        <graph_prototype>
-                            <name>{#DESCRIPTION} - {#TUNNEL} Status</name>
+                            <name>Status {#TUNNEL} - {#DESCRIPTION} </name>
                             <graph_items>
                                 <graph_item>
                                     <sortorder>1</sortorder>
@@ -143,7 +72,7 @@
                                 </graph_item>
                             </graph_items>
                         </graph_prototype>
-                        <graph_prototype>
+                        <!-- <graph_prototype>
                             <name>{#DESCRIPTION} - {#TUNNEL} Traffic</name>
                             <graph_items>
                                 <graph_item>
@@ -162,7 +91,7 @@
                                     </item>
                                 </graph_item>
                             </graph_items>
-                        </graph_prototype>
+                        </graph_prototype> -->
                     </graph_prototypes>
                 </discovery_rule>
             </discovery_rules>
