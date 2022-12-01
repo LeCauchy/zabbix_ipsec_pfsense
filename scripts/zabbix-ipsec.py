@@ -57,8 +57,11 @@ def parseConf():
             descr = "Not found"
             descr_tmp = list()
             m3 = re.search(reg_descr, g)
-            m3 = m3.group()
-            m3 = m3.strip('\t\t# .*:')
+            if(m3):
+                m3 = m3.group()
+                m3 = m3.strip('\t\t# .*:')
+            else:
+                m3="Description Not Found"
             if m3:
                 descr_tmp.append(m3)
             if conn_tmp and left_tmp and right_tmp and descr_tmp:

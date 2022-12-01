@@ -9,8 +9,8 @@
     </groups>
     <templates>
         <template>
-            <template>Template App pfSense IPSec tunnels</template>
-            <name>Template App pfSense IPSec tunnels</name>
+            <template>Template App Monitoring pfSense IPSec tunnels</template>
+            <name>Template App Monitoring pfSense IPSec tunnels</name>
             <groups>
                 <group>
                     <name>Templates/Applications</name>
@@ -66,7 +66,7 @@
                                     <sortorder>1</sortorder>
                                     <color>1A7C11</color>
                                     <item>
-                                        <host>Template App pfSense IPSec tunnels</host>
+                                        <host>Template App Monitoring pfSense IPSec tunnels</host>
                                         <key>ipsec.tunnel[{#TUNNEL}]</key>
                                     </item>
                                 </graph_item>
